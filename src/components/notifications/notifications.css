@@ -1,0 +1,11 @@
+.notification-card {
+    background: linear-gradient(180deg, #2A7F85 0%, #2E3C50 100%);
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,.1);
+    border-radius: 10px 10px 0 0;
+}
+
+.not-user {
+    color: #6AF2FF;
+}

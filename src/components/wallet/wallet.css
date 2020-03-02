@@ -1,0 +1,264 @@
+.inner h4 {
+    color: white;
+    margin-left: 20px;
+    font-size: 2em;
+    font-weight: 400;
+}
+.blue-container {
+    display: block;
+    background: #C6D4FF;
+    color: #000;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: 600;
+}
+.bal-pem {
+    margin: 10px 20px;
+    color: #A7A7A7;
+}
+.bal-pem span {
+    margin-right: 40px;
+    font-size: .9em;
+    font-weight: 600;
+}
+.bal-pem .active {
+    color: #fff !important;
+}
+hr {
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+}
+.wallet-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.wallet-text h2{
+    color: #fff;
+    width: 300px;
+    font-size: 1.6em;
+    margin: 20px 0 0 20px;
+    font-weight: 400;
+}
+.wallet-text p {
+    width: 500px;
+    color: #C6D4FF;
+    margin: 20px;
+    font-size: .85em;
+    font-weight: 300;
+}
+.wallety {
+    width: 300px;
+}
+.wallet-image {
+    margin: 20px 0 30px 140px;
+}
+.history {
+    margin: 20px auto;
+}
+.history h5 {
+    color: #fff;
+    font-size: 1.4em;
+    margin-left: 20px;
+}
+.history p {
+    color: #ccc;
+    font-size: .8em;
+    font-weight: 200;
+    margin-left: 20px;
+}
+.wallet-table {
+    margin-left: 20px;
+}
+.wallet-container {
+    padding-top: 20px;
+}
+.collapse .wallet-image {
+    margin-left: 260px;
+}
+.wallet-container table {
+    margin-top: 5px;
+}
+.inner {
+    margin-top: -40px;
+}
+.content-table {
+    border-collapse: collapse;
+    color: #000;
+    font-size: .9em;
+    background: #D4D4D5;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,.15);
+    width: 91%;
+}
+.content-table thead tr{
+    background-color: #B3BCD8;
+    text-align: left;
+    font-weight: bold;
+}
+.content-table th,
+.content-table td {
+    padding: 5px 10px;
+}
+.content-table tbody tr {
+    border-bottom: 1px solid rgb(190, 190, 190);
+}
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #B3BCD8;
+}
+@media only screen and (max-width: 1024px) {
+    .blue-container {
+        padding: 8px 20px;
+        font-size: .9em;
+        font-weight: 600;
+    }
+    .inner h4 {
+        font-size: 1.7em;
+    }
+    .wallet-image {
+        margin-left: 80px !important;
+    }
+}
+@media only screen and (max-width: 770px) {
+    .wallet-div {
+        display: flex;
+        flex-direction: column;
+    }
+    .wallet-image {
+        margin: 20px 160px !important;
+        width: 100%;
+    }
+    .inner h4 {
+        margin-left: 10px;
+        font-size: 1.4em;
+    }
+    .bal-pem {
+        margin: 10px;
+    }
+    .blue-container {
+        padding: 10px;
+    }
+    .wallet-text h2{
+        width: 300px;
+        font-size: 1.4em;
+        margin: 10px 0 20px 10px;
+    }
+    .wallet-text p {
+        width: 600px;
+        margin: 10px;
+    }
+    .history h5 {
+        font-size: 1.2em;
+        margin-left: 10px;
+    }
+    .history p {
+        color: #ffffff;
+        font-size: .7em;
+        margin-left: 10px;
+        white-space: normal;
+        width: 82%;
+    }
+    .wallet-table {
+        margin-left: 10px;
+    }
+    .content-table {
+        color: #000;
+        font-size: .8em;
+        width: 88%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .inner h4 {
+        font-size: 1.3em;
+    }
+    .blue-container {
+        padding: 8px;
+        font-size: .8em;
+    }
+    .wallet-text h2{
+        width: 200px;
+        font-size: 1.2em;
+        line-height: 1.4em;
+    }
+    .wallet-text p {
+        width: 400px;
+        font-size: .8rem;
+    }
+    .wallet-image {
+        margin: 20px 50px !important;
+    }
+    .history p {
+        margin-bottom: 10px;
+        white-space: normal;
+        width: 80%;
+    }
+    .content-table {
+        font-size: .8em;
+        width: 82%;
+    }
+}
+@media only screen and (max-width: 415px) {
+    .inner h4 {
+        font-size: 1.2em;
+    }
+    .blue-container {
+        padding: 7px;
+    }
+    .wallet-text h2{
+        width: 150px;
+        font-size: 1.15em;
+    }
+    .wallet-text p {
+        width: 300px;
+    }
+    .history p{
+        white-space: normal;
+        width: 77%;
+    }
+    .wallety {
+        width: 230px;
+    }
+    .content-table {
+        width: 77%;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .inner h4 {
+        margin-left: 5px;
+    }
+    .bal-pem {
+        margin: 5px;
+    }
+    .blue-container {
+        padding: 10px 5px;
+    }
+    .wallet-text h2{
+        margin: 10px 0 20px 5px;
+        width: 140px;
+        margin-bottom: 10px;
+    }
+    .wallet-text p {
+        margin: 5px;
+        width: 270px;
+    }
+    .history h5 {
+        margin-left: 5px;
+    }
+    .history p {
+        margin-left: 5px;
+        white-space: normal;
+        width: 76%;
+    }
+    .wallet-table {
+        margin-left: 5px;
+    }
+    .wallet-image {
+        margin: 20px 40px !important;
+    }
+    .wallety {
+        width: 210px;
+    }
+    .content-table {
+        width: 76%;
+    }
+}

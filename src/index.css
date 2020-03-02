@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "barlow", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.mr-20 {
+  margin-right: 20px !important;
+}
+.content_wrapper {
+  position: relative;
+  top: 70px;
+  left: 70px;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* The loader button code below is not being used at the moment  */
+
+/* start of loader button code */
+
+.loader-button {
+  display: inline-block;
+  width: 160px;
+  height: 35px;
+  border: 2px solid #fff;
+  color: #fff;
+  font-size: .9em;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  line-height: 28px;
+  box-sizing: border-box;
+  border-radius: 50px;
+  background-color: transparent;
+  outline: none;
+  transition: all ease 0.5s;
+}
+
+.loader-button .active{
+  font-size: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border-left-color: transparent;
+  animation: rotate 1.4s ease 0.5s infinite;
+}
+
+@keyframes rotate{
+  0%{
+    transform: rotate(360deg);
+  }
+}
+
+.loader-button .success{
+  position: relative;
+  background-color: #fff;
+  animation: bounce .3s ease-in;
+}
+@keyframes bounce{
+  0%{
+    transform: scale(0.9);
+  }
+}
+.loader-button .success:before{
+  content: '';
+  position: absolute;
+  background: url(/img/check-solid.svg) no-repeat;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  top: 5px;
+}
+
+/* End of oader button code */

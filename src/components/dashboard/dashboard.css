@@ -1,0 +1,245 @@
+.dash {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 400;
+    margin: 10px;
+}
+.dash-container {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: unsafe;
+    margin: 15px 10px 10px 10px;
+}
+.dash-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.dash-card {
+    width: 180px;
+    background: #2C3F57;
+    height: 110px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.15);
+    padding: 5px 10px;
+    margin-right: 40px;
+}
+.dash-kanda {
+    font-size: .8em;
+    color: #C5C5C5;
+    font-weight: 300;
+    display: flex;
+    margin: 5px;
+    white-space: nowrap;
+}
+.dash-num {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #fff;
+    display: flex;
+    margin-left: 5px;
+}
+.dash-percent {
+    font-size: .65em;
+    font-weight: 400;
+    color: #1ADB74;
+    display: flex;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+.dash-name {
+    font-size: .7em;
+    font-weight: 400;
+    color: #979797;
+    display: flex;
+    margin: 10px 0 0 5px;
+}
+.dash-card-2 {
+    padding: 10px 0 0 10px;
+}
+.dash-circle {
+    padding: 5px;
+    border-radius: 50px;
+    background: #1B998B;
+    width: 5px;
+    margin-left: 43px;
+    margin-top: 30px;
+    box-shadow: 0 0 20px rgba(0, 199, 90, 0.5),
+     0 0 10px rgba(0, 199, 90, 0.8)
+}
+.dash-card-2 span {
+    color: #C6D4FF;
+    margin: 30px 0 0 40px;
+}
+.second-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.teloart {
+    width: 400px;
+}
+.dashboard-advert {
+    width: 100%;
+    padding: 20px  10px 5px;
+    margin-top: 40px;
+    margin-left: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+.dash-advert {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.ad-sum {
+    margin: auto 15px;
+}
+.right-dashboard {
+    display: block;
+    margin: 40px 20px;
+}
+.spons {
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 300;
+    margin: 0 20px;
+}
+.refer {
+    color: #fff;
+    font-size: 1em;
+    font-weight: 300;
+    margin: 10px 120px;
+}
+.refz {
+    opacity: 40%;
+    margin: 10px 150px;
+}
+@media only screen and (max-width: 1125px) {
+    .dash-card {
+        width: 160px;
+    }
+    .telo-art{
+        width: 300px;
+    }
+    .right-dashboard {
+        margin: 40px -5px;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .dash-container {
+        width: 90%;
+    }
+    .telo-art {
+        width: 250px;
+    }
+    .right-dashboard {
+        margin: 40px 10px;
+    }
+    .dash-card {
+        margin-right: 20px;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .dash-card {
+        width: 140px;
+    }
+    .telo-art{
+        width: 200px;
+    }
+    .right-dashboard {
+        margin: 40px 5px;
+    }
+    .ad-sum {
+        margin: auto 10px;
+    }
+}
+@media only screen and (max-width: 830px) {
+    .dash-card {
+        width: 120px;
+        height: 90px;
+    }
+    .dash-kanda {
+        font-size: .7em;
+        margin: 2px;
+    }
+    .dash-num {
+        font-size: .9em;
+        margin-left: 2px;
+    }
+    .dash-percent {
+        font-size: .6em;
+        margin-left: 2px;
+    }
+    .dash-name {
+        font-size: .6em;
+        margin: 5px 0 0 2px;
+    }
+    .dash-card-2 {
+        padding: 5px 0 0 5px;
+    }
+    .dashboard-advert {
+        padding: 5px;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    .second-dashboard {
+        display: flex;
+        flex-direction: column;
+    }
+    .right-dashboard {
+        align-self: center;
+        margin: 10px !important;
+    }
+}
+@media only screen and (max-width: 770px) {
+    .spons {
+        font-size: 1.4em;
+        font-weight: 400;
+        margin-left: 0;
+    }
+    .right-dashboard {
+        width: 300px;
+    }
+    .teloart {
+        width: 100%;
+    }
+    .refer {
+       white-space: nowrap;
+       margin: 5px 80px;
+    }
+    .refz {
+        white-space: nowrap;
+        margin: 0 110px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .dashboard-advert {
+        height: 100%;
+    }
+    .dash-card {
+        margin-bottom: 15px;
+    }
+    .dash-container {
+        flex-wrap: wrap;
+        justify-content: unsafe; 
+    }
+    .dash-container :nth-child(5) {
+        display: none;
+    }
+    .dash-advert {
+        margin-left: -90px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .dash-card {
+        margin-right: 25px;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .dashboard-advert {
+        margin-left: 5px;
+    }
+    .right-dashboard {
+        width: 270px;
+    }
+}
