@@ -1,5 +1,8 @@
 const initState = {
-    authError: null
+    authError: null,
+    verifyEmail: {
+        verifyError: null
+    }
 }
 
 const authReducer = (state = initState, action) => {
@@ -30,6 +33,16 @@ const authReducer = (state = initState, action) => {
             return {
                 ...state,
                 authError: action.err.message
+            }
+        case 'VERIFY_SUCCESS':
+            console.log('verify success')
+            return {
+                ...state, verifyEmail: { ...state.verifyEmail, verifyError: null },
+            }
+        case 'VERIFY_ERROR':
+            console.log('verify error')
+            return {
+                ...state, verifyEmail: { ...state.verifyEmail, verifyError: action.err.message },
             }
         default:
             return state;

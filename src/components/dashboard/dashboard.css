@@ -84,7 +84,6 @@
     margin-top: 40px;
     margin-left: 10px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,.1);
 }
 .dash-advert {
     display: flex;
@@ -230,9 +229,19 @@
         margin-left: -90px;
     }
 }
+@media only screen and (max-width: 430px) {
+    .dash-card {
+        margin-right: 65px;
+    }
+}
+@media only screen and (max-width: 415px) {
+    .dash-card {
+        margin-right: 55px;
+    }
+}
 @media only screen and (max-width: 400px) {
     .dash-card {
-        margin-right: 25px;
+        margin-right: 40px;
     }
 }
 @media only screen and (max-width: 375px) {

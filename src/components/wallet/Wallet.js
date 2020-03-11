@@ -8,6 +8,7 @@ class Wallet extends Component {
     render() {
         const { auth } = this.props;
         if (!auth.uid) return <Redirect to='/login' />
+        if (auth.uid && !auth.emailVerified) return <Redirect to='/verify-email' />
         return (
             <div className="wallet-container">
                 <div className="inner">

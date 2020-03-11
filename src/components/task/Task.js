@@ -11,6 +11,7 @@ class Task extends Component {
     render() {
         const { tasks, auth, notifications } = this.props;
         if (!auth.uid) return <Redirect to='/login' />
+        if (auth.uid && !auth.emailVerified) return <Redirect to='/verify-email' />
         return (
             <div className="task-container">
                 <div className="task">

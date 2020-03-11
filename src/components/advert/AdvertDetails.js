@@ -10,6 +10,7 @@ const AdvertDetails = (props) => {
     const { advert, auth } = props;
 
     if (!auth.uid) return <Redirect to='/login' />
+    if (auth.uid && !auth.emailVerified) return <Redirect to='/verify-email' />
     if (advert) {
         return (
             <div className="container section advert-details">

@@ -10,6 +10,7 @@ const TaskDetails = (props) => {
     const { task, auth } = props;
 
     if (!auth.uid) return <Redirect to='/login' />
+    if (auth.uid && !auth.emailVerified) return <Redirect to='/verify-email' />
     if (task) {
         return (
             <div className="container section task-details">

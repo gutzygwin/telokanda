@@ -11,6 +11,7 @@ class Dashboard extends Component {
     render() {
         const { adverts, auth } = this.props;
         if (!auth.uid) return <Redirect to='/login' />
+        if (auth.uid && !auth.emailVerified) return <Redirect to='/verify-email' />
         return (
             <div className="content-area">
                 <span className="dash">Dashboard</span>

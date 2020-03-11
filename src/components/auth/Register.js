@@ -22,7 +22,8 @@ class Register extends Component {
     }
     render() {
         const { authError, auth } = this.props;
-        if (auth.uid) return <Redirect to='/' />
+        if (auth.uid && auth.emailVerified) return <Redirect to='/' />
+        if (auth.uid) return <Redirect to='/verify-email' />
         return (
         <div className="FormCenter">
             <form onSubmit={this.handleSubmit} className="FormFields">

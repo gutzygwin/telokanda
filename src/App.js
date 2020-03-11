@@ -15,6 +15,7 @@ import AdvertDetails from './components/advert/AdvertDetails';
 import CreateTask from './components/task/CreateTask';
 import CreateAdvert from './components/advert/CreateAdvert';
 import Wallet from './components/wallet/Wallet';
+import verifyEmail from './components/auth/verifyEmail';
 
 class App extends Component {
     render(){
@@ -23,6 +24,7 @@ class App extends Component {
                 <Switch>
                     <Route exact path="/login" component={SignInAndUp} />
                     <Route exact path="/register" component={SignInAndUp} />
+                    <Route path="/verify-email" component={verifyEmail} />
                     <React.Fragment>
                             <Navbar />
                             <div className={"content_wrapper"}>

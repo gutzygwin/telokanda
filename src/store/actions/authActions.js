@@ -39,8 +39,25 @@ export const signUp = (newUser) => {
             })
         }).then(() => {
             dispatch({ type: 'SIGNUP_SUCCESS' })
+        }).then(dataBeforeEmail => {
+            firebase.auth().onAuthStateChanged(function(user) {
+              user.sendEmailVerification();
+            });
         }).catch(err => {
             dispatch({ type: 'SIGNUP_ERROR', err })
+        })
+    }
+}
+
+export const emailVerification = () => {
+    return (dispatch, getState, {getFirebase}) => {
+        const firebase = getFirebase();
+
+        firebase.auth().onAuthStateChanged(function(user) {
+            user.sendEmailVerification();
+            dispatch({ type: 'VERIFY_SUCCESS' });
+        }, err => {
+            dispatch({ type: 'VERIFY_ERROR', err });
         })
     }
 }

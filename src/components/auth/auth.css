@@ -195,6 +195,41 @@
     top: 90px;
     left: 120px;
 }
+
+/* css for verify email component */
+
+.inner-verify {
+    margin: 20px;
+    padding: 20px;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.verify-image {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+}
+.verifyemail {
+    width: 500px;
+}
+.verify-span {
+    font-size: 1em;
+    font-weight: 500;
+}
+.verify-text {
+    color: white;
+    width: 420px;
+    white-space: nowrap;
+    padding: 10px;
+}
+.ver-text {
+    font-size: 2em;
+    font-weight: 600;
+    align-self: center;
+    padding: 0px 80px;
+}
 @media only screen and (max-width: 1200px) {
     .cloudy {
         width: 400px;
@@ -380,6 +415,23 @@
         top: calc(10px + 9999px) !important;
         opacity: 0.5;
     }
+    .verifyemail {
+        width: 300px;
+    }
+    .verify-text {
+        width: 300px;
+        white-space: nowrap;
+        padding: 10px;
+    }
+    .ver-text {
+        font-size: 1.5em;
+        font-weight: 600;
+        padding: 0px 70px;
+    }
+    .verify-span {
+        white-space: normal;
+        text-align: center;
+    }
 }
 @media only screen and (max-width: 500px){
     .cloudy {
@@ -430,6 +482,22 @@
     }
     .FormField__Button {
         padding: 10px 50px;
+    }
+    .verifyemail {
+        width: 250px;
+    }
+    .verify-text {
+        width: 250px;
+        padding: 10px;
+    }
+    .ver-text {
+        font-size: 1.4em;
+        font-weight: 600;
+        padding: 0px 45px;
+    }
+    .verify-span {
+        white-space: normal;
+        text-align: center;
     }
 }
 @media only screen and (max-width: 375px){

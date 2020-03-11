@@ -25,6 +25,7 @@ class CreateTask extends Component {
     render() {
         const { auth, notifications } = this.props;
         if (!auth.uid) return <Redirect to='/login' />
+        if (auth.uid && !auth.emailVerified) return <Redirect to='/verify-email' />
         return (
             <div className="create-task-container task-container">
                 <div className="first-create">
