@@ -9,10 +9,36 @@
 body {
     background: -webkit-linear-gradient(top, #2C3F57, #160B16);
     background-repeat: no-repeat;
-    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     background-attachment: fixed;
-    box-sizing: content-box;
+}
+
+.modal {
+    position: fixed;
+    z-index: 400;
+    top: 200px;
+    display: block;
+    color: white;
+    background: #2C3F57;
+    border-radius: 15px;
+}
+.modal-content {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-gap: 1rem;
+}
+.account-details {
+    font-size: 1.2em;
+    color: #fff;
+}
+.account-d {
+    font-size: 1.5em;
+    color: #6AF2FF;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+.modal-off {
+    display: none;
 }
 
 .nav_wrapper {
@@ -263,15 +289,29 @@ coloz ul li a:hover,
     }
 }
 @media only screen and (max-width: 430px) {
-    .rayan {
+    /* .rayan {
         margin-right: 75px;
+    } */
+    .modal {
+        margin-left: 75px;
+    }
+    .modal-content {
+        grid-gap: 0;
+    }
+    .account-details {
+        font-size: 1em;
+        color: #fff;
+    }
+    .account-d {
+        font-size: 1.3em;
+        margin-bottom: 10px;
     }
 }
 @media only screen and (max-width: 375px) {
-    .logout {
+    /* .logout {
         font-size: .9em;
     }
     .rayan {
         margin-right: 55px;
-    }
+    } */
 }

@@ -16,7 +16,7 @@ const AdvertSummary = ({advert}) => {
                 <div className="advert-name">
                     <span>Created by {advert.authorFirstName} {advert.authorLastName}</span>
                 </div>
-                <button className="get-p">Get</button>
+                <a href={ advert.link }><button className="get-p">Get</button></a>
             </div>
         </div>
     )

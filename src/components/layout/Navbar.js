@@ -9,10 +9,19 @@ import { connect } from 'react-redux';
 class Navbar extends Component {
     state = {
         isSwitchOn: false,
+        isModalOn: false
+    }
+    toggleModalState=()=>{
+        console.log('toggler')
+        this.setState((prevState)=>({
+            isModalOn:!prevState.isModalOn
+        }))
     }
     render() {
         const { profile } = this.props;
         const isOn = this.state.isSwitchOn;
+        const { isModalOn } = this.state;
+        console.log(this.props.email)
         return (
             <div className="nav_wrapper">
                 <div className="top_navbar">
@@ -24,7 +33,7 @@ class Navbar extends Component {
                     </div>
                     <div className="top_menu">
                         <div className="logo"><NavLink to ='/'><img src={telokanda_logo} className="logo_image" alt="telokanda_logo"/></NavLink></div>
-                        <SignedInLinks profile={profile} />
+                        <SignedInLinks profile={profile} toggleModalState={this.toggleModalState}/>
                     </div>
                 </div>
                 <div className={ isOn ? "sidebar" : "coloz" }>
@@ -55,6 +64,20 @@ class Navbar extends Component {
                             <span className="title">Contact Us</span></Link></li>
                     </ul>
                 </div>
+                <div className={ isModalOn ? "modal" : "modal-off" }>
+                    <div className="modal-content left-align">
+                        <div className="first-modal">
+                            <div className="btn btn-floating blue lighten-1 props-initials">
+                                {this.props.profile.initials}
+                            </div>
+                        </div>
+                        <div className="second-modal">
+                            <h4 className="account-d">Account Details</h4>
+                            <h5 className="account-details"> Email address: {this.props.email? this.props.email:'Not Logged In'}</h5>
+                            <h5 className="account-details">Fullname: {this.props.profile.firstName} {this.props.profile.lastName}</h5>
+                        </div>
+                    </div>
+                </div>
                 <ul className="animation-area">
                     <li></li>
                     <li></li>
@@ -70,7 +93,8 @@ class Navbar extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        profile: state.firebase.profile
+        profile: state.firebase.profile,
+        email:state.auth.email
     }
 }
 export default connect(mapStateToProps)(Navbar)

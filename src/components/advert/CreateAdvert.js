@@ -12,7 +12,8 @@ class CreateAdvert extends Component {
     state = {
         title: '',
         content: '',
-        url: ''
+        url: '',
+        link: ''
     }
     handleChange = (e) => {
         this.setState({
@@ -60,6 +61,10 @@ class CreateAdvert extends Component {
                             <div className="input-field">
                                 <label htmlFor="content" className="white-text">Advert Content</label>
                                 <textarea id="content" className="materialize-textarea white-text" onChange={this.handleChange}/>
+                            </div>
+                            <div className="input-field">
+                                <label htmlFor="content" className="white-text">Product Link</label>
+                                <textarea id="link" className="materialize-textarea white-text" onChange={this.handleChange}/>
                             </div>
                             <div className="image-field">
                                 <label htmlFor="imageFile" className="include-image"><i className="material-icons">add_photo_alternate</i> &nbsp; Choose Image</label>

@@ -23,6 +23,25 @@ export const signOut = () => {
     }
 }
 
+
+
+export const userProfile = () => {
+    return (dispatch, getState, {getFirebase}) => {
+        const firebase = getFirebase();
+
+        firebase.auth().onAuthStateChanged(user => {
+            console.log(user);
+            if (user) {
+                dispatch({type:'USER_EMAIL',payload:user})
+                
+            } else {
+                dispatch({type:'USER_EMAIL_ERROR'})
+              
+            }
+        })
+    }
+}
+
 export const signUp = (newUser) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         const firebase = getFirebase();
