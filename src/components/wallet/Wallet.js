@@ -4,6 +4,9 @@ import './wallet.css';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import {getBalance} from "./utils/walletManagement";
+import {getAcctBalance} from "./wallet_functions";
+
 class Wallet extends Component {
     render() {
         const { auth } = this.props;
