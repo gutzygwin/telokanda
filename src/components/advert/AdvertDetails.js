@@ -5,9 +5,24 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { Redirect } from 'react-router-dom';
 import moment from 'moment';
+import {reward} from '../wallet/telos'
 
 const AdvertDetails = (props) => {
     const { advert, auth } = props;
+
+    const handleClick =(e) => {
+        const user = localStorage.getItem('newAccount')
+        if(!user){
+            return alert('Login to your Wallet')
+        }
+        reward(user).then((data) => {
+            if(data.toString().includes('Error')){
+                alert('Reward not collected, Something went wrong')
+            }else{
+                alert('Reward collected')
+            }
+        }).catch((err)=> alert(err.message))
+    }
 
     if (!auth.uid) return <Redirect to='/login' />
     if (auth.uid && !auth.emailVerified) return <Redirect to='/verify-email' />
@@ -26,7 +41,7 @@ const AdvertDetails = (props) => {
                                 <div className="ad-card-title">{ advert.title }</div>
                                 <div className="ad-card-text">{ advert.content }</div>
                                 <br/>
-                                <a href={ advert.link }><button className="get-p">Get</button></a>
+                                <a onClick={handleClick} href={ advert.link } target="_blank" rel="noopener noreferrer" ><button className="get-p">Get</button></a>
                             </div>
                             <div className="card-action actiony">
                                 <div className="posted-by">Posted by {advert.authorFirstName} {advert.authorLastName}</div>
