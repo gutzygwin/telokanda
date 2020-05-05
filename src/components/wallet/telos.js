@@ -1,15 +1,14 @@
-const Eos = require('eosjs')
 const ecc = require('eosjs-ecc');
 const {decrypt} = require('./encrypt')
 require('dotenv').config()
 
 
-const { Api, JsonRpc, RpcError } = require('eosjs');
+const { Api, JsonRpc } = require('eosjs');
 const { JsSignatureProvider } = require('eosjs/dist/eosjs-jssig');
 const fetch = require('node-fetch');
 const { TextEncoder, TextDecoder } = require('text-encoding');
 
-const defaultPrivateKey = '5JRnsiGnaJUoydn3qAsKuP1ix1hDQndwR5aL7Wn4cocuqfU9xVc'; 
+const defaultPrivateKey = decrypt("d61b56dd086bcb4b1ae699f79fa16351963e9109ca69d2a706d649849573c54c4709e0de07f07f0ba7421613c2c5296dd83c6012379c8c9304f7bf0f04992b1f"); 
 const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
 
 const rpc = new JsonRpc('https://api.telosfoundation.io:443', { fetch });
