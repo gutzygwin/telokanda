@@ -3,22 +3,112 @@ import wallet_illustration from './wallet_assests/wallet_illustration.png';
 import './wallet.css';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-
-import {getBalance} from "./utils/walletManagement";
-import {getAcctBalance} from "./wallet_functions";
+import {login, getBalance, get_history} from './telos'
+import {encrypt} from './encrypt'
 
 class Wallet extends Component {
+    constructor(props){
+        super(props)
+        this.state = {account:"", key:"", balance:"" ,transactions: []}
+    }
+    componentDidMount() {
+        if(localStorage.getItem('newKey')){
+            this.setState({key: localStorage.getItem('newKey')})
+            login(localStorage.getItem('newKey')).then((data) => {
+                this.setState({account: data})
+                getBalance(this.state.account).then((data) => {
+                    this.setState({balance: data})
+                }).catch((err) => {
+                    alert(err)
+                })
+                get_history(this.state.account).then((data) => {
+                    this.setState({transactions: data})
+                }).catch((err) => {
+                    alert(err)
+                })
+            }).catch((err) => {
+                localStorage.removeItem('newKey')
+                this.setState({account: "", key: "", balance: ""})
+            })
+            
+        }
+    }
+    handleSubmit = (e) => {
+        e.preventDefault()
+        login(encrypt(this.state.key)).then((data) => {
+            if(data === this.state.account){
+                localStorage.setItem('newKey',encrypt(this.state.key))
+                localStorage.setItem('newAccount', this.state.account)
+                this.setState({account: data})
+            }else{
+                throw new Error ('Username and privateKey do not match')
+            }
+        }).catch((err) => {
+            this.setState({account: "", key: "", balance: ""})
+            alert(err)
+        })
+        
+        getBalance(this.state.account).then((data) => {
+            this.setState({balance: data})
+        }).catch((err)=> alert(err))
+
+        get_history(this.state.account).then((data) => {
+            this.setState({transactions: data})
+        }).catch((err) => {
+            alert(err)
+        })
+    }
+
+    handleChange = (e) => {
+        this.setState({[e.target.name]: e.target.value})
+    }
     render() {
+        const transactions = this.state.transactions.map(transaction => (
+            <tr>
+                <td>{transaction.time}</td>
+                <a href={transaction.url} target="_blank" rel="noopener noreferrer"><td>{transaction.id}</td></a>
+                <td>{transaction.details.memo}</td>
+            </tr>
+        )
+        )
         const { auth } = this.props;
+        const key = localStorage.getItem('newKey')
         if (!auth.uid) return <Redirect to='/login' />
         if (auth.uid && !auth.emailVerified) return <Redirect to='/verify-email' />
         return (
             <div className="wallet-container">
                 <div className="inner">
                     <h4>Wallet</h4>
-                    <div className="blue-container">
-                        <p>Your current rewards: 0.023 Telos</p>
-                    </div>
+
+                    {!key && 
+                    <div id="login">
+                    <form onSubmit={this.handleSubmit} autoComplete="off">
+                        <input 
+                            type="text" 
+                            minLength="12" 
+                            maxLength="12" 
+                            placeholder="Account Name" 
+                            name="account" 
+                            value={this.state.account}
+                            onChange={this.handleChange}>
+                        </input>
+                        <input 
+                            type="text" 
+                            placeholder="Private Key" 
+                            name="key" 
+                            value={this.state.key}
+                            onChange={this.handleChange}>
+                        </input>
+                        <button>Submit</button>
+                    </form>
+                    
+
+                </div>}
+                {key &&  <div className="blue-container">
+                        <p>Your current rewards: {this.state.balance}</p>
+                    </div>}
+                    
+                    
                     <div className="bal-pem">
                         <span className="active">Balances</span>
                         <span>Keys & Permissions</span>
@@ -54,21 +144,7 @@ class Wallet extends Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1 week ago</td>
-                                        <td>Upgrade of Account from kanda 3 to kanda 4</td>
-                                        <td>37658y5-658gu658-8u7gi876y-u7</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1 week ago</td>
-                                        <td>Upgrade of Account from kanda 3 to kanda 4</td>
-                                        <td>37658y5-658gu658-8u7gi876y-u7</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1 week ago</td>
-                                        <td>Upgrade of Account from kanda 3 to kanda 4</td>
-                                        <td>37658y5-658gu658-8u7gi876y-u7</td>
-                                    </tr>
+                                    {transactions}
                                 </tbody>
                             </table>
                         </div>
