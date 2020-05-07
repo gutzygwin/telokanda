@@ -25,8 +25,7 @@ const AdvertDetails = (props) => {
                             <div className="card-container">
                                 <div className="ad-card-title">{ advert.title }</div>
                                 <div className="ad-card-text">{ advert.content }</div>
-                                <br/>
-                                <a href={ advert.link }><button className="get-p">Get</button></a>
+                                <a href={ advert.link }><button className="get-d">Get</button></a>
                             </div>
                             <div className="card-action actiony">
                                 <div className="posted-by">Posted by {advert.authorFirstName} {advert.authorLastName}</div>
