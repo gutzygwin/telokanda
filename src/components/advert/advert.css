@@ -42,6 +42,7 @@
 }
 .top-section img {
     width: 140px;
+    height: 100px;
 }
 .get-p {
     background-color: #364B68;
@@ -58,10 +59,28 @@
 .get-p:hover {
     opacity: 80%;
 }
+.get-d {
+    background-color: #364B68;
+    color: white;
+    border: none;
+    box-shadow: 0 20px 30px 0 rgba(0,0,0,.1);
+    outline: none;
+    border-radius: 25px;
+    padding: 6px 40px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 10px 0;
+}
+.get-d:hover {
+    opacity: 80%;
+}
 .advert-info h2 {
     font-size: 1em;
     margin-top: -1px;
     font-weight: 400;
+    text-overflow: ellipsis;
+    white-space: nowrap;                                                                                                                          
 }
 .advert-info p {
     line-height: 0.9em;
