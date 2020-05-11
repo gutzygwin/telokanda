@@ -4,7 +4,6 @@ import './wallet.css';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {login, getBalance, get_history} from './telos'
-import {encrypt} from './encrypt'
 
 class Wallet extends Component {
     constructor(props){
@@ -35,9 +34,9 @@ class Wallet extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault()
-        login(encrypt(this.state.key)).then((data) => {
+        login(this.state.key).then((data) => {
             if(data === this.state.account){
-                localStorage.setItem('newKey',encrypt(this.state.key))
+                localStorage.setItem('newKey',this.state.key)
                 localStorage.setItem('newAccount', this.state.account)
                 this.setState({account: data})
             }else{
