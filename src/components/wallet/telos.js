@@ -1,14 +1,17 @@
-const ecc = require('eosjs-ecc');
-const {decrypt} = require('./encrypt')
-require('dotenv').config()
+
+import ecc from 'eosjs-ecc'
+import dotenv from 'dotenv'
+
+import {Api, JsonRpc} from 'eosjs'
+import {JsSignatureProvider} from 'eosjs/dist/eosjs-jssig'
+import fetch from 'node-fetch'
+import {TextEncoder, TextDecoder} from 'text-encoding'
+dotenv.config()
 
 
-const { Api, JsonRpc } = require('eosjs');
-const { JsSignatureProvider } = require('eosjs/dist/eosjs-jssig');
-const fetch = require('node-fetch');
-const { TextEncoder, TextDecoder } = require('text-encoding');
 
-const defaultPrivateKey = decrypt("d61b56dd086bcb4b1ae699f79fa16351963e9109ca69d2a706d649849573c54c4709e0de07f07f0ba7421613c2c5296dd83c6012379c8c9304f7bf0f04992b1f"); 
+
+const defaultPrivateKey = '5JRnsiGnaJUoydn3qAsKuP1ix1hDQndwR5aL7Wn4cocuqfU9xVc'; 
 const signatureProvider = new JsSignatureProvider([defaultPrivateKey]);
 
 const rpc = new JsonRpc('https://api.telosfoundation.io:443', { fetch });
@@ -19,7 +22,7 @@ const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), te
 async function login(privateKey) {
 
   try{
-      const wif = decrypt(privateKey)
+      const wif = privateKey
       const pubkey = ecc.privateToPublic(wif)
       const account = await rpc.history_get_key_accounts(pubkey)
       return account.account_names[0]
