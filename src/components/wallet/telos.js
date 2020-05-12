@@ -107,6 +107,6 @@ async function transfer(username, quantity, memo){
 
 
  
-module.exports = {
-  login, getBalance,get_history, reward
+export {
+  login, getBalance, get_history, reward
 }
