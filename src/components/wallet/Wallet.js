@@ -31,7 +31,9 @@ class Wallet extends Component {
             })
             
         }
+ 
     }
+ 
     handleSubmit = (e) => {
         e.preventDefault()
         login(this.state.key).then((data) => {
@@ -60,6 +62,12 @@ class Wallet extends Component {
 
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
+    }
+    handleLogout = (e) => {
+        e.preventDefault()
+        localStorage.removeItem('newKey');
+        localStorage.removeItem('account')
+        this.setState({account:"", key:"", balance:"" ,transactions: []})
     }
     render() {
         const transactions = this.state.transactions.map(transaction => (
@@ -105,6 +113,8 @@ class Wallet extends Component {
                 </div>}
                 {key &&  <div className="blue-container">
                         <p>Your current rewards: {this.state.balance}</p>
+                        <button onClick={this.handleLogout}>Logout</button>
+                        
                     </div>}
                     
                     
@@ -114,6 +124,15 @@ class Wallet extends Component {
                     </div>
                     <hr/>
                     <div className="wallet-div">
+                    <form autoComplete="off">
+                        <input
+                            type="Number" 
+                            placeholder="Amount to stake in Kanda" 
+                            name="amount" >
+                        </input>
+                       
+                        <button>Submit</button>
+                    </form>
                         <div className="wallet-text">
                             <h2>Why do we use Telokanda wallet?</h2>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi assumenda aliquam eius eveniet laborum adipisci dolore quaerat nihil eos? Quibusdam laboriosam voluptas consequatur suscipit itaque soluta impedit debitis sit facilis.</p>
