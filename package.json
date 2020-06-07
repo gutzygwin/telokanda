@@ -28,8 +28,7 @@
     "redux-thunk": "^2.3.0",
     "reselect": "3.0.1",
     "scatterjs-core": "^2.7.18",
-    "scatterjs-plugin-eosjs": "^1.5.1",
-    "serve": "^11.3.0"
+    "scatterjs-plugin-eosjs": "^1.5.1"
   },
   "scripts": {
     "start": "react-scripts start",

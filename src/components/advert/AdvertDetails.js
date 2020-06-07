@@ -7,9 +7,6 @@ import { Redirect } from 'react-router-dom';
 import moment from 'moment';
 import {reward} from '../wallet/telos'
 
-// need the stake balance to be a global variable i can call from this file
-
-
 const AdvertDetails = (props) => {
     const { advert, auth } = props;
 
