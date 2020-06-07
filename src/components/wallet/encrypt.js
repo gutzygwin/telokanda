@@ -1,15 +1,23 @@
-const Cryptr = require('cryptr');
-const cryptr = new Cryptr('myTotalySecretKey');
- 
-const encryptedString = cryptr.encrypt('5JRnsiGnaJUoydn3qAsKuP1ix1hDQndwR5aL7Wn4cocuqfU9xVc');
-const decryptedString = cryptr.decrypt(encryptedString);
- 
-console.log(encryptedString); // e7b75a472b65bc4a42e7b3f78833a4d00040beba796062bf7c13d9533b149e5ec3784813dc20348fdf248d28a2982df85b83d1109623bce45f08238f6ea9bd9bb5f406427b2a40f969802635b8907a0a57944f2c12f334bd081d5143a357c173a611e1b64a
-console.log(decryptedString); // bacon
+import cryto from 'crypto';
+var algorithm = "aes-192-cbc"; //algorithm to use
+var password = "its a secret";
+const key = crypto.scryptSync(password, 'salt', 24); //create key
+var text= "this is the text to be encrypted"; //text to be encrypted
 
-  
+const iv = Buffer.alloc(16, 0);
+const cipher = crypto.createCipheriv(algorithm, key, iv);
+const decipher = crypto.createDecipheriv(algorithm, key, iv);
 
-// export {
-//     encrypt,
-//     decrypt
-// }
+function encrypt(text){
+    var encrypted = cipher.update(text, 'utf8', 'hex') + cipher.final('hex'); // encrypted text
+    return encrypted
+}
+
+function decrypt(text){
+    var decrypted = decipher.update(text, 'hex', 'utf8') + decipher.final('utf8'); //deciphered text
+    return decrypted
+}
+
+console.log(encrypt('thus a boy'))
+
+export {encrypt, decrypt}
