@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
     "cryptr": "^6.0.2",
     "eosjs": "^20.0.3",
     "eosjs-ecc": "^4.0.7",
@@ -29,7 +30,8 @@
     "reselect": "3.0.1",
     "scatterjs-core": "^2.7.18",
     "scatterjs-plugin-eosjs": "^1.5.1",
-    "serve": "^11.3.0"
+    "serve": "^11.3.0",
+    "universal-cookie": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
