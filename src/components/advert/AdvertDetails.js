@@ -16,14 +16,12 @@ const AdvertDetails = (props) => {
   const { advert, auth } = props;
 
   const handleClick = async (e) => {
-    const data = await axios.post('http://localhost:3000/reward', {
+    const data = await axios.post('https://kanda-api.herokuapp.com/reward', {
       username: cookies.get('account'),
       advert: advert.id,
     });
-    console.log(data.data.status);
 
     if (data.data.status !== 'success') {
-      console.log('i failed');
       return alert(data.data.data);
     }
   };
